@@ -35,10 +35,20 @@
 ////////////////////////////////////////
 
 // Pinout configuration (Configured for Arduino Leonardo)
-int CC_RST   = 5;
-int CC_DC    = 4;
-int CC_DD_I  = 3;
-int CC_DD_O  = 2;
+// int CC_RST   = 5;
+// int CC_DC    = 4;
+// int CC_DD_I  = 3;
+// int CC_DD_O  = 2;
+
+// int CC_RST   = 5;
+// int CC_DC    = 4;
+// int CC_DD_I  = 14;
+// int CC_DD_O  = 12;
+
+int CC_RST   = D5;
+int CC_DC    = D7;
+int CC_DD_I  = D6;
+int CC_DD_O  = D8;
 
 // Change this if you are using an external led
 int LED      = LED_BUILTIN;
@@ -47,7 +57,7 @@ int LED      = LED_BUILTIN;
 ////////////////////////////////////////
  
 // Include the CCDebugger
-#include <CCDebugger.h>
+#include "CCDebugger.h"
 
 // Command constants
 #define   CMD_ENTER     byte(0x01)
@@ -91,10 +101,11 @@ void setup() {
   dbg->setLED( LED, LED );
   
   // Initialize serial port
-  Serial.begin(115200);
+  //Serial.begin(115200);
+  Serial.begin(9600);
   
   // Wait for chip to initialize
-  delay(100);
+  delay(5000);
   
   // Enter debug mode
   dbg->enter();
