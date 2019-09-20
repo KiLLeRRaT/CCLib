@@ -83,6 +83,7 @@ class CCLibProxy:
 				# Open port
 				try:
 					self.ser = serial.Serial(port, baudrate=9600, timeout=3.0, write_timeout=3.0)
+					#self.ser = serial.Serial(port, baudrate=115200, timeout=3.0, write_timeout=3.0) # Will need to updat ethe Arduino code to 115200 baud also if we want to try this...
 					self.port = port
 					time.sleep(3)
 				except:
